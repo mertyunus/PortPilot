@@ -1,0 +1,12 @@
+{
+  "name": "portpilot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local TCP port viewer and process stopper for Windows",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

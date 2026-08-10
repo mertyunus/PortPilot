@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PortPilot — Local Port Yöneticisi</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="brand"><span class="logo">P</span><span>PortPilot</span></div>
+      <div class="status"><i></i> Yerel bağlantı</div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">LOCALHOST KONTROL MERKEZİ</p>
+        <h1>Portlarına<br><span>hakim ol.</span></h1>
+        <p class="subtitle">Bilgisayarındaki dinlenen portları gör, hangi uygulamanın kullandığını bul ve tek tıkla durdur.</p>
+      </div>
+      <div class="radar" aria-hidden="true"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="sweep"></div><div class="dot d1"></div><div class="dot d2"></div></div>
+    </section>
+
+    <section class="panel">
+      <div class="toolbar">
+        <div>
+          <h2>Aktif portlar</h2>
+          <p id="summary">Taranıyor…</p>
+        </div>
+        <div class="actions">
+          <label class="search"><span>⌕</span><input id="search" type="search" placeholder="Port, PID veya process ara…"></label>
+          <button id="refresh" class="primary"><span>↻</span> Yenile</button>
+        </div>
+      </div>
+
+      <div id="error" class="notice hidden"></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>PORT</th><th>PROCESS</th><th>PID</th><th>ADRES</th><th>DURUM</th><th></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <div id="empty" class="empty hidden"><div>◎</div><h3>Eşleşen port bulunamadı</h3><p>Arama metnini değiştirip tekrar deneyebilirsin.</p></div>
+      </div>
+      <footer><span id="updated">—</span><span>PortPilot yalnızca bu bilgisayarda çalışır.</span></footer>
+    </section>
+  </main>
+
+  <dialog id="confirm">
+    <form method="dialog">
+      <div class="danger-icon">!</div>
+      <h3>Süreci durdur?</h3>
+      <p id="confirmText"></p>
+      <div class="dialog-actions"><button value="cancel" class="secondary">Vazgeç</button><button id="approve" value="default" class="danger">Evet, durdur</button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
